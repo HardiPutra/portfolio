@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Smartphone preference classification placeholder thumbnail">
+  <defs>
+    <pattern id="g3" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#E8E8EC" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="b3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0071E3" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0071E3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#F5F5F7"/>
+  <rect width="1600" height="1000" fill="url(#g3)" opacity="0.6"/>
+  <circle cx="1120" cy="320" r="420" fill="url(#b3)"/>
+
+  <rect x="200" y="160" width="1200" height="660" rx="28" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+
+  <!-- Axes -->
+  <path d="M300 720H1300" stroke="#E5E5E5" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M300 720V250" stroke="#E5E5E5" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Decision boundary -->
+  <path d="M330 690 C 560 560, 700 470, 1270 280" stroke="#0071E3" stroke-opacity="0.45" stroke-width="4" stroke-dasharray="14 12" fill="none" stroke-linecap="round"/>
+
+  <!-- Class A (below boundary) -->
+  <g fill="#B4B4BD">
+    <circle cx="392" cy="676" r="15"/><circle cx="470" cy="700" r="15"/><circle cx="546" cy="654" r="15"/>
+    <circle cx="620" cy="690" r="15"/><circle cx="700" cy="662" r="15"/><circle cx="512" cy="606" r="15"/>
+    <circle cx="786" cy="694" r="15"/><circle cx="860" cy="650" r="15"/><circle cx="640" cy="596" r="15"/>
+    <circle cx="944" cy="676" r="15"/><circle cx="738" cy="580" r="15"/><circle cx="1030" cy="640" r="15"/>
+  </g>
+
+  <!-- Class B (above boundary) -->
+  <g fill="#0071E3" fill-opacity="0.55">
+    <circle cx="560" cy="430" r="15"/><circle cx="646" cy="392" r="15"/><circle cx="724" cy="440" r="15"/>
+    <circle cx="812" cy="380" r="15"/><circle cx="900" cy="424" r="15"/><circle cx="676" cy="316" r="15"/>
+    <circle cx="988" cy="366" r="15"/><circle cx="1074" cy="410" r="15"/><circle cx="860" cy="304" r="15"/>
+    <circle cx="1160" cy="348" r="15"/><circle cx="1046" cy="286" r="15"/><circle cx="1224" cy="416" r="15"/>
+  </g>
+
+  <!-- Legend -->
+  <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="22" fill="#86868B">
+    <circle cx="1140" cy="196" r="10" fill="#B4B4BD"/>
+    <text x="1164" y="204">Class A</text>
+    <circle cx="1272" cy="196" r="10" fill="#0071E3" fill-opacity="0.55"/>
+    <text x="1296" y="204">Class B</text>
+  </g>
+
+  <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" fill="#86868B">
+    <text x="200" y="906" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#6E6E73">Preference Classification</text>
+    <text x="200" y="950" font-size="24" font-weight="400">Replace with a real chart or screenshot</text>
+  </g>
+</svg>

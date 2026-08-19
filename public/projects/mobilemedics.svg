@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="MobileMedics placeholder thumbnail">
+  <defs>
+    <pattern id="g2" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#E8E8EC" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="b2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0071E3" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#0071E3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#F5F5F7"/>
+  <rect width="1600" height="1000" fill="url(#g2)" opacity="0.6"/>
+  <circle cx="380" cy="760" r="440" fill="url(#b2)"/>
+
+  <!-- Listing panel -->
+  <rect x="180" y="190" width="740" height="620" rx="28" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+  <g>
+    <rect x="228" y="246" width="220" height="18" rx="9" fill="#E4E4EA"/>
+    <g fill="#F2F2F5" stroke="#EDEDF1" stroke-width="1.5">
+      <rect x="228" y="308" width="644" height="128" rx="18"/>
+      <rect x="228" y="460" width="644" height="128" rx="18"/>
+      <rect x="228" y="612" width="644" height="128" rx="18"/>
+    </g>
+    <g fill="#DEDEE5">
+      <rect x="264" y="344" width="56" height="56" rx="16"/>
+      <rect x="264" y="496" width="56" height="56" rx="16"/>
+      <rect x="264" y="648" width="56" height="56" rx="16"/>
+    </g>
+    <g fill="#E4E4EA">
+      <rect x="348" y="352" width="230" height="16" rx="8"/>
+      <rect x="348" y="504" width="278" height="16" rx="8"/>
+      <rect x="348" y="656" width="196" height="16" rx="8"/>
+    </g>
+    <g fill="#EEEEF2">
+      <rect x="348" y="384" width="150" height="14" rx="7"/>
+      <rect x="348" y="536" width="182" height="14" rx="7"/>
+      <rect x="348" y="688" width="132" height="14" rx="7"/>
+    </g>
+    <g fill="#0071E3" opacity="0.18">
+      <rect x="742" y="352" width="94" height="34" rx="17"/>
+      <rect x="742" y="504" width="94" height="34" rx="17"/>
+      <rect x="742" y="656" width="94" height="34" rx="17"/>
+    </g>
+  </g>
+
+  <!-- Device -->
+  <rect x="1030" y="150" width="340" height="700" rx="48" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+  <rect x="1058" y="182" width="284" height="636" rx="32" fill="#FAFAFC"/>
+  <rect x="1150" y="164" width="100" height="12" rx="6" fill="#EDEDF1"/>
+  <g fill="#E9E9EF">
+    <rect x="1094" y="248" width="212" height="130" rx="18"/>
+    <rect x="1094" y="404" width="150" height="16" rx="8"/>
+    <rect x="1094" y="440" width="196" height="14" rx="7"/>
+    <rect x="1094" y="500" width="212" height="14" rx="7"/>
+    <rect x="1094" y="536" width="168" height="14" rx="7"/>
+  </g>
+  <rect x="1094" y="700" width="212" height="52" rx="26" fill="#1D1D1F"/>
+
+  <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" fill="#86868B">
+    <text x="180" y="906" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#6E6E73">MobileMedics</text>
+    <text x="180" y="950" font-size="24" font-weight="400">Replace with a real screenshot</text>
+  </g>
+</svg>

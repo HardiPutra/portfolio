@@ -1,0 +1,178 @@
+@import "@fontsource-variable/inter/wght.css";
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Design tokens
+ * A deliberately small palette: white, off-white, greys, near-black.
+ * Everything else is opacity of these.
+ * ------------------------------------------------------------------ */
+@theme {
+  --font-sans: "Inter Variable", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif;
+
+  /* Surfaces */
+  --color-canvas: #ffffff;
+  --color-surface: #f5f5f7;
+  --color-surface-2: #fafafc;
+
+  /* Text — two tiers only. A third, lighter grey cannot reach the 4.5:1
+     contrast ratio on white, so hierarchy is carried by size, weight and
+     letter-spacing instead of by a washed-out colour. */
+  --color-ink: #1d1d1f;
+  --color-ink-muted: #6e6e73;
+
+  /* Lines */
+  --color-line: #e5e5e5;
+  --color-line-soft: #eeeef0;
+
+  /* The single accent. Used sparingly: links, focus rings, small marks. */
+  --color-accent: #0071e3;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Elevation — soft and low-contrast, never dramatic */
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -8px rgb(0 0 0 / 0.08);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.04), 0 20px 40px -12px rgb(0 0 0 / 0.14);
+}
+
+/* ------------------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor targets so the fixed navbar never covers a heading. */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Guards against any single element forcing a horizontal scrollbar. */
+    overflow-x: hidden;
+  }
+
+  /* Headings inherit tight, Apple-like tracking at large sizes. */
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 18%, transparent);
+    color: var(--color-ink);
+  }
+
+  /* A quiet scrollbar that matches the palette (WebKit only — progressive). */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d2d2d7;
+    border: 3px solid var(--color-canvas);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b8b8bf;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Component utilities
+ * Kept few on purpose — glass is an accent, not the theme.
+ * ------------------------------------------------------------------ */
+@layer components {
+  /* Frosted panel. Reserved for the navbar, the contact card and the
+     small floating elements in the hero. Nothing else. */
+  .glass {
+    background: rgb(255 255 255 / 0.65);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgb(255 255 255 / 0.5);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Fallback for browsers without backdrop-filter (older Firefox). */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background: rgb(255 255 255 / 0.92);
+    }
+  }
+
+  .glass-strong {
+    background: rgb(255 255 255 / 0.78);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgb(255 255 255 / 0.6);
+  }
+
+  /* Section shell: consistent gutters and max width across the page. */
+  .shell {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2.5rem;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Focus ring — deliberately UNLAYERED.
+ *
+ * Cascade layers outrank specificity, and Tailwind's `utilities` layer
+ * comes after `base`. Its `transition-colors` utility includes
+ * `outline-color`, so a rule inside @layer base would lose and the ring
+ * would fade in over 300ms from the element's own text colour — leaving a
+ * keyboard user with a low-contrast grey outline for the first third of a
+ * second. Unlayered declarations beat every layered one, so this wins
+ * cleanly without a specificity hack.
+ * ------------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+  /* Same list as `transition-colors`, minus outline-color: the ring is
+     instant, while hover colour changes stay smooth. */
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow, opacity, transform;
+}
+
+/* ------------------------------------------------------------------ *
+ * Accessibility: honour reduced-motion at the platform level.
+ * Motion One components also check this via useReducedMotion().
+ * ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

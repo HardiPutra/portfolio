@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "PowerShell(npm install --no-fund --no-audit)",
+      "PowerShell(npm ls react react-dom vite tailwindcss motion lucide-react --depth=0)",
+      "PowerShell(npm install @fontsource-variable/inter --no-fund --no-audit)",
+      "PowerShell($p = Get-Content node_modules\\\\motion\\\\package.json -Raw | ConvertFrom-Json; $p.exports.PSObject.Properties.Name)",
+      "PowerShell(npm run build)",
+      "PowerShell($env:CI='1'; $p = Start-Process npm -ArgumentList 'run','dev' -NoNewWindow -PassThru -RedirectStandardOutput \"$env:TEMP\\\\dev-out.txt\" -RedirectStandardError \"$env:TEMP\\\\dev-err.txt\"; Start-Sleep -Seconds 8; if \\(-not $p.HasExited\\) { Stop-Process -Id $p.Id -Force }; \"--- STDOUT ---\"; Get-Content \"$env:TEMP\\\\dev-out.txt\" -ErrorAction SilentlyContinue; \"--- STDERR ---\"; Get-Content \"$env:TEMP\\\\dev-err.txt\" -ErrorAction SilentlyContinue)",
+      "Bash(timeout 12 node node_modules/vite/bin/vite.js --port 5199)",
+      "Bash(python -c ' *)",
+      "mcp__visualize__show_widget"
+    ]
+  }
+}
